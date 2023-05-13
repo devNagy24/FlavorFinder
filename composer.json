@@ -1,0 +1,17 @@
+{
+  "name": "devonnag/328/FlavorFinder",
+  "authors": [
+    {
+      "name": "Devon Nagy",
+      "email": "nagy.devon@student.greenriver.edu"
+    },
+    {
+      "name": "Sayed Sadat",
+      "email": "Sayedjalalsadat.9@gmail.com"
+    }
+
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  }
+}

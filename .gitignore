@@ -1,0 +1,12 @@
+# .gitignore contains files and
+# folders that should be excluded
+# from version control
+
+# ignore vendor directory
+vendor/
+composer.lock
+tmp/
+db.php
+
+
+
