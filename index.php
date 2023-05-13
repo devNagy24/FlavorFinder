@@ -7,7 +7,7 @@
 /*
  * Controller for FlavorFinder project
  */
-session_start();
+//session_start();
 // Turn on error reporting
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
@@ -15,6 +15,7 @@ error_reporting(E_ALL);
 // Require the needed files
 require_once('vendor/autoload.php');
 require('db.php');
+require('apiController.php');
 
 // Create an F3 (Fat-Free Framework) object
 $f3 = Base::instance();
@@ -36,15 +37,16 @@ $f3->route('GET /', function($f3) {
     echo $view->render('views/home.html');
 });
 
-// Save recipe from JS async API calls
-$f3->route('POST /saveRecipe', function($f3) {
-    $recipe = json_decode($f3->get('BODY'), true);
 
-    $db = $f3->get('DB');
-    $recipeModel = new \DB\SQL\Mapper($db, 'recipes');
-    $recipeModel->copyfrom($recipe);
-    $recipeModel->save();
-});
+// Save recipe from JS async API calls
+//$f3->route('POST /saveRecipe', function($f3) {
+//    $recipe = json_decode($f3->get('BODY'), true);
+//
+//    $db = $f3->get('DB');
+//    $recipeModel = new \DB\SQL\Mapper($db, 'recipes');
+//    $recipeModel->copyfrom($recipe);
+//    $recipeModel->save();
+//});
 
 // Run the F3 instance
 $f3->run();
