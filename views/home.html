@@ -7,136 +7,158 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSS_GFpoO/2T3T3TzF4w4wPEtv1j8p7D4/1LXVD+aiteePzJ8MvK" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/a0684f48ab.js" crossorigin="anonymous"></script>
 
-<!--    <link rel="stylesheet" href="styles/style.css" />-->
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+
+    <!--    <link rel="stylesheet" href="styles/style.css" />-->
 
 <style>
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: inherit;
+
+    .preview__img {
+        display: block;
+        width: 100px;  /* Adjust this as needed */
+        height: 100px; /* Adjust this as needed */
+        object-fit: cover;
+        border-radius: 50%;
+        transition: all 0.3s;
+        text-align: center;
+
     }
 
-    html {
-        box-sizing: border-box;
-        font-size: 62.5%;
+
+
+    .search-form .btn-outline-success {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
     }
 
+    .search-form .form-control {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
 
-    body {
-        font-family: 'Nunito Sans', sans-serif;
-        font-weight: 400;
-        line-height: 1.6;
-        color: #615551;
-        background-image: linear-gradient(to right bottom, #fbdb89, #f48982);
-        background-size: cover;
-        background-repeat: no-repeat;
-        min-height: calc(100vh - 2 * 4vw);
+    .input-group .btn-outline-success {
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: none;
+        border-color: transparent; /* remove the border */
+        color: grey; /* change the icon color */
+    }
+
+    .input-group .form-control {
+        padding-left: 3rem; /* adjust as needed */
+    }
+
+    .nav-link {
+        color: white;
+    }
+
+    .twitter-link {
+        color: white;
     }
 
 
 </style>
 
-
     <title>FlavorFinder // Search over 1,000,000 recipes</title>
+
 </head>
+
 <body>
-<div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-3 mb-4 border-bottom">
-        <a class="navbar-brand" href="#"><img src="images/favicon.png" alt="Logo" width="40" height="40"/> <strong>FlavorFinder</strong></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Sign Up</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa-solid fa-user fa-sm"></i> Services
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#"> <i class="fa fa-bookmark fa-sm" aria-hidden="true"></i> Bookmarks</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#"> <i class="fa fa-cloud-upload fa-sm" aria-hidden="true"></i> Upload Recipe</a>
+
+<!-- Start of navigation -->
+<!--<div class="container">-->
+<nav class="navbar navbar-expand-lg navbar-light bg-dark py-3 mb-4 border-bottom">
+    <a class="navbar-brand" href="#">
+        <picture>
+            <source media="(max-width: 768px)" srcset="images/AI-file-79x86.png">
+            <img src="images/AI-file-585x82.png" alt="Logo" />
+        </picture>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <div class="col-4 col-lg-6 mx-auto">
+            <form action="/search" class="form-inline my-2 my-lg-2 mx-auto" method="post">
+                <div class="input-group search-form">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-success" type="submit">
+                            <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+                        </button>
                     </div>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <input type="text" name="query" class="form-control" placeholder="Search for recipes..." value="pizza" aria-label="Search">
+                </div>
             </form>
         </div>
-    </nav>
-<!--        <div class="collapse navbar-collapse" id="navbarNavDropdown">-->
-<!--&lt;!&ndash;            <form class="form-inline my-2 my-lg-0 mx-auto">&ndash;&gt;-->
-<!--&lt;!&ndash;                <input class="form-control mr-sm-2" type="search" placeholder="Search over 1,000,000 recipes..." aria-label="Search">&ndash;&gt;-->
-<!--&lt;!&ndash;                <button class="btn btn-primary-success my-2 my-sm-0" type="submit">Search</button>&ndash;&gt;-->
-<!--&lt;!&ndash;            </form>&ndash;&gt;-->
+
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Log In</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa-solid fa-user fa-sm"></i> Services
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#"><i class="fa fa-bookmark fa-sm" aria-hidden="true"></i> Bookmarks</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#"><i class="fa fa-cloud-upload fa-sm" aria-hidden="true"></i> Upload Recipe</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
 
 
-<!--            <ul class="navbar-nav">-->
-<!--                <li class="nav-item ml-2">-->
-<!--                    <a class="nav-link" href="#">Home</a>-->
-<!--                </li>-->
-<!--                <li class="nav-item ml-4">-->
-<!--                    <button class="btn btn-success">-->
-<!--                        <span>Add recipe</span>-->
-<!--                    </button>-->
-<!--                </li>-->
-<!--                <li class="nav-item ml-4">-->
-<!--                    <button class="btn btn-success">-->
-<!--                        <span>Bookmarks</span>-->
-<!--                    </button>-->
-<!--                </li>-->
-<!--            </ul>-->
-<!--        </div>-->
-<!--    </nav>-->
 
-<!--    <form class="form-inline my-2 my-lg-0 mx-auto">-->
-<!--        <input class="form-control mr-sm-2" type="search" placeholder="Search over 1,000,000 recipes..." aria-label="Search">-->
-<!--        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
-<!--    </form>-->
-
-    <div class="row">
-        <div class="col-lg-8">
-            <div class="card mb-3">
-                <div class="card-body">
-                    <h2 class="card-title">Search Results</h2>
-                    <ul class="list-group">
-                        <!-- Each list item represents a search result -->
-                        <li class="list-group-item">
+<!-- End of Navigation -->
+<div class="row">
+    <div class="col-lg-6 ml-auto ">
+        <div class="card mb-3 ml-auto" style="background-color: #212529; ">
+            <div class="card-body" style="padding: 8px;">
+                <h2 class="card-title" style="color: white; padding: 8px;">Search Results</h2>
+<!--                <ul class="list-group">-->
+                    <!-- Each list item represents a search result -->
+                    <repeat group="{{ @newArray }}" value="{{ @recipe }}">
+                        <ul class="list-group" >
+                        <li class="list-group-item" style="padding: 8px; margin-bottom: 4px;">
                             <div class="preview">
-                                <a class="preview__link preview__link--active" href="#23456">
-                                    <figure class="preview__fig">
-                                        <img src="" alt="Test" />
+                                <a class="preview__link preview__link" href="/328/FlavorFinder/recipe/{{ @recipe.id }}">
+                                <figure class="preview__fig">
+                                        <img class="preview__img" src="{{ @recipe.image_url }}" alt="{{ @recipe.title }}" />
                                     </figure>
                                     <div class="preview__data">
-                                        <h4 class="preview__title">Pasta with Tomato Cream ...</h4>
-                                        <p class="preview__publisher"><i class="fa-solid fa-user fa-sm"></i> The Pioneer Woman</p>
+                                        <h4 class="preview__title">{{ @recipe.title }}</h4>
+                                        <p class="preview__publisher"><i class="fa-solid fa-user fa-sm"></i> {{ @recipe.publisher }}</p>
                                         <div class="preview__user-generated">
-<!--                                            <svg>-->
-<!--                                                <use href="images/icons.svg#icon-user"></use>-->
-<!--                                            </svg>-->
-<!--                                            <i class="fa-solid fa-user fa-sm"></i>-->
                                         </div>
                                     </div>
                                 </a>
                             </div>
                         </li>
-                        <!-- Add more list items as needed -->
-                    </ul>
-<!--                    <nav aria-label="Page navigation example">-->
+                        </ul>
+                    </repeat>
+            </div>
+        </div>
+    </div>
+
+
+
+
+<!--                    <nav aria-label="Page navigation">-->
 <!--                        <ul class="pagination justify-content-end">-->
 <!--                            <li class="page-item disabled">-->
 <!--                                <a class="page-link" href="#" tabindex="-1">Previous</a>-->
@@ -149,34 +171,35 @@
 <!--                            </li>-->
 <!--                        </ul>-->
 <!--                    </nav>-->
-                </div>
-            </div>
-        </div>
 
-        <div class="col-lg-4">
-            <div class="card">
+
+
+        <div class="col-lg-4 mx-auto">
+            <div class="card" style="background-color: #212529;">
                 <div class="card-body">
-                    <h2 class="card-title">Bookmarks</h2>
+                    <h2 class="card-title" style="color:white;">Bookmarks</h2>
                     <ul class="list-group">
+                        <repeat group="{{ @recipeBook }}" value="{{ @recipe }}">
                         <!-- Each list item represents a bookmark -->
                         <li class="list-group-item">
-                            <h4 class="card-title">Pasta with Tomato Cream ...</h4>
-                            <p class="card-text">The Pioneer Woman</p>
+                            <h4 class="card-title">{{ @recipeBook.title }}</h4>
+                            <p class="card-text"><i class="fa-solid fa-user fa-sm"></i>{{ @recipeBook.publisher }}</p>
                             <!-- ... -->
                         </li>
-                        <!-- Add more list items as needed -->
+                        </repeat>
                     </ul>
                 </div>
             </div>
         </div>
-    </div>
 
-    <footer class="footer mt-auto py-3 fixed-bottom">
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark py-6 mb-10 border-bottom">
+    <footer class="footer mt-auto py-3">
         <div class="container">
             <span class="text-muted">&copy; Copyright by
                 <a class="twitter-link" target="_blank" href="">FlavorFinder</a>. Learn how to cook delicious meals from around the world!</span>
         </div>
     </footer>
+    </nav>
 
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
