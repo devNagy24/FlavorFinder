@@ -15,6 +15,8 @@
 
     <!--    <link rel="stylesheet" href="styles/style.css" />-->
 
+    <title>FlavorFinder // Search over 1,000,000 recipes</title>
+
 <style>
 
 
@@ -66,10 +68,52 @@
         color: white;
     }
 
+    .preview__link {
+        color: #212529;
+    }
+
+    .preview__link:hover {
+        color: #F08000;
+    }
+
+    .dropdown-item {
+        color: #212529;
+    }
+
+    .dropdown-item:hover {
+        color: #F08000;
+    }
+
+    .dropdown-divider {
+        color: #F08000;
+    }
+
+    .nav-link {
+        color: white;
+    }
+
+    .nav-link:hover {
+        color: #F08000;
+    }
+
+    .nav-link:active {
+        color: #F08000;
+    }
+    .nav-link:focus {
+        color: #F08000;
+    }
+    .nav-link:visited {
+        color: #F08000;
+    }
+
+    .nav-link.dropdown-toggle:active,
+    .nav-link.dropdown-toggle:focus {
+        color: #F08000;
+    }
+
 
 </style>
 
-    <title>FlavorFinder // Search over 1,000,000 recipes</title>
 
 </head>
 
@@ -126,15 +170,21 @@
 
 <!-- End of Navigation -->
 <div class="row">
-    <div class="col-lg-6 ml-auto ">
-        <div class="card mb-3 ml-auto" style="background-color: #212529; ">
+    <div class="col-lg-4 mx-auto ">
+        <div class="card mb-3" style="background-color: #212529; ">
             <div class="card-body" style="padding: 8px;">
                 <h2 class="card-title" style="color: white; padding: 8px;">Search Results</h2>
 <!--                <ul class="list-group">-->
                     <!-- Each list item represents a search result -->
                     <repeat group="{{ @newArray }}" value="{{ @recipe }}">
-                        <ul class="list-group" >
-                        <li class="list-group-item" style="padding: 8px; margin-bottom: 4px;">
+                        <ul class="list-group" style=" " >
+                        <li class="list-group-item" style="padding: 8px; margin-bottom: 4px; display: flex;
+        flex-direction: column;
+
+      padding: 1.5rem 3.25rem;
+      transition: all 0.3s;
+      border-right: 1px solid #fff;
+      text-decoration: none; ">
                             <div class="preview">
                                 <a class="preview__link preview__link" href="/328/FlavorFinder/recipe/{{ @recipe.id }}">
                                 <figure class="preview__fig">
