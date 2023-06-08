@@ -88,6 +88,30 @@ $f3->route('GET /recipe/@id', function($f3, $params) {
 });
 
 
+$f3->route('POST /uploadRecipe', function($f3) {
+    $db = new DB\SQL('mysql:host=localhost;dbname=FlavorFinder', 'devnagy', 'GreenRiverEDU!!');
+
+    $title = $f3->get('POST.title');
+    $publisher = $f3->get('POST.publisher');
+
+    // Handle image upload
+    $image = $_FILES['image'];
+    $upload_dir = 'uploads/';
+    $uploaded_file = $upload_dir . basename($image['name']);
+
+    if (move_uploaded_file($image['tmp_name'], $uploaded_file)) {
+        $image_url = 'http://' . $_SERVER['HTTP_HOST'] . '/' . $uploaded_file;
+
+        // Save data into database
+        $db->exec('INSERT INTO recipes (title, publisher, image_url) VALUES (?, ?, ?)', [$title, $publisher, $image_url]);
+
+        echo 'Recipe uploaded successfully';
+    } else {
+        echo 'Failed to upload image';
+    }
+});
+
+
 // Save recipe from JS async API calls
 //$f3->route('POST /saveRecipe', function($f3) {
 //    $recipe = json_decode($f3->get('BODY'), true);
