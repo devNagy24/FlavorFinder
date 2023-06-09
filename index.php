@@ -40,35 +40,19 @@ $f3->route('GET /', function($f3) {
     $apiController = new ApiController();
     // Replace 'pizza' with the user's search query, Hardcoding for testing
     $query = 'pizza';
-    $id = '5ed6604591c37cdc054bcc3e';
+//    $id = '5ed6604591c37cdc054bcc3e';
 
-    $recipes = $apiController->loadRecipe($id);
-    $newArray = $apiController->getRecipesFromForkify();
+//    $recipes = $apiController->loadRecipe($id);
+    $newArray = $apiController->getRecipesFromForkify($query);
     // Pass the data to the view
     $f3->set('newArray', $newArray);
-    $f3->set('recipeBook', $recipes);
+//    $f3->set('recipeBook', $recipes);
 
     // Display a view page
     $view = new Template();
     echo $view->render('views/home.html');
 });
 
-
-
-$f3->route('POST  /search', function($f3) {
-        $query = $f3->get('POST.query');
-
-        // Instantiate your API controller
-        $apiController = new ApiController();
-        $recipe = $apiController->getRecipeBySearch('pizza');
-
-        // Save the recipe data in the hive
-        $f3->set('recipe', $recipe);
-
-        // Validate the data
-    $view = new Template();
-    echo $view->render('views/home.html');
-});
 
 // Routing from preview link to recipeView
 $f3->route('GET /recipe/@id', function($f3, $params) {
@@ -87,40 +71,50 @@ $f3->route('GET /recipe/@id', function($f3, $params) {
     echo $view->render('views/recipe.html');
 });
 
+$f3->route('POST /search', function($f3) {
 
-$f3->route('POST /uploadRecipe', function($f3) {
-    $db = new DB\SQL('mysql:host=localhost;dbname=FlavorFinder', 'devnagy', 'GreenRiverEDU!!');
+    $apiController = new ApiController();
 
-    $title = $f3->get('POST.title');
-    $publisher = $f3->get('POST.publisher');
+    // Get user's search term from POST data
+    $query = $f3->get('POST.query');
+    var_dump($query);
 
-    // Handle image upload
-    $image = $_FILES['image'];
-    $upload_dir = 'uploads/';
-    $uploaded_file = $upload_dir . basename($image['name']);
+    // Fetch recipes based on user's search term
+    $newArray = $apiController->getRecipesFromForkify($query);
 
-    if (move_uploaded_file($image['tmp_name'], $uploaded_file)) {
-        $image_url = 'http://' . $_SERVER['HTTP_HOST'] . '/' . $uploaded_file;
+    // Pass the data to the view
+    $f3->set('newArray', $newArray);
 
-        // Save data into database
-        $db->exec('INSERT INTO recipes (title, publisher, image_url) VALUES (?, ?, ?)', [$title, $publisher, $image_url]);
-
-        echo 'Recipe uploaded successfully';
-    } else {
-        echo 'Failed to upload image';
-    }
+    // Display a view page
+    $view = new Template();
+    echo $view->render('views/home.html');
 });
 
 
-// Save recipe from JS async API calls
-//$f3->route('POST /saveRecipe', function($f3) {
-//    $recipe = json_decode($f3->get('BODY'), true);
+
+//$f3->route('POST /uploadRecipe', function($f3) {
+//    $db = new DB\SQL('mysql:host=localhost;dbname=FlavorFinder', 'devnagy', 'GreenRiverEDU!!');
 //
-//    $db = $f3->get('DB');
-//    $recipeModel = new \DB\SQL\Mapper($db, 'recipes');
-//    $recipeModel->copyfrom($recipe);
-//    $recipeModel->save();
+//    $title = $f3->get('POST.title');
+//    $publisher = $f3->get('POST.publisher');
+//
+//    // Handle image upload
+//    $image = $_FILES['image'];
+//    $upload_dir = 'uploads/';
+//    $uploaded_file = $upload_dir . basename($image['name']);
+//
+//    if (move_uploaded_file($image['tmp_name'], $uploaded_file)) {
+//        $image_url = 'http://' . $_SERVER['HTTP_HOST'] . '/' . $uploaded_file;
+//
+//        // Save data into database
+//        $db->exec('INSERT INTO recipes (title, publisher, image_url) VALUES (?, ?, ?)', [$title, $publisher, $image_url]);
+//
+//        echo 'Recipe uploaded successfully';
+//    } else {
+//        echo 'Failed to upload image';
+//    }
 //});
+
 
 // Run the F3 instance
 $f3->run();
