@@ -1,0 +1,89 @@
+<body>
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="mb-3">
+                        <label for="loginUsername" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="loginUsername" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="loginPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="loginPassword" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="loginSubmit">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+    <div id="toast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <i class="fas fa-check-circle text-success"></i>
+            <strong class="me-auto">Success</strong>
+            <small>Just now</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            You have logged in!
+        </div>
+    </div>
+</div>
+<script>
+    document.getElementById('loginSubmit').addEventListener('click', function(event) {
+        event.preventDefault();
+        let form = document.getElementById('loginForm');
+
+        if(form.checkValidity()) {
+            let username = document.getElementById('loginUsername').value;
+            let password = document.getElementById('loginPassword').value;
+
+            let payload = {
+                username: username,
+                password: password
+            };
+
+            fetch(appRootTwo + '/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            }).then(response => response.json())
+                .then(data => {
+                    if(data.success) {
+                        // Close the login model
+                        let modal = document.getElementById('loginModal');
+                        let bootstrapModal = bootstrap.Modal.getInstance(modal);
+                        bootstrapModal.hide();
+
+                        // Save the username in the localStorage
+                        localStorage.setItem('username', data.username);
+
+                        // Add "Welcome, username" to the navbar
+                        let welcomeItem = document.createElement('li');
+                        welcomeItem.classList.add('nav-item');
+                        welcomeItem.innerHTML = '<i class="fa-solid fa-user fa-sm"></i> Welcome, ' + data.username;
+                        welcomeItem.style.color = 'white';
+                        welcomeItem.style.listStyleType = 'none';
+                        welcomeItem.style.paddingRight = '10px';
+                        document.querySelector('.navbar').appendChild(welcomeItem);
+                    } else {
+                        alert('Login failed');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        } else {
+            form.reportValidity();
+        }
+    });
+
+
+</script>
+</body>
