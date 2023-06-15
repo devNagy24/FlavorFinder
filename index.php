@@ -218,8 +218,34 @@ $f3->route('GET /bookmarks', function($f3) {
 });
 
 
+<<<<<<< HEAD
 
 
+=======
+//Stores into the sql data base
+//$f3->route('POST /uploadRecipe', function($f3) {
+//    $db = new DB\SQL('mysql:host=localhost;dbname=FlavorFinder', 'devnagy', 'GreenRiverEDU!!');
+//
+//    $title = $f3->get('POST.title');
+//    $publisher = $f3->get('POST.publisher');
+//
+//    // Handle image upload
+//    $image = $_FILES['image'];
+//    $upload_dir = 'uploads/';
+//    $uploaded_file = $upload_dir . basename($image['name']);
+//
+//    if (move_uploaded_file($image['tmp_name'], $uploaded_file)) {
+//        $image_url = 'http://' . $_SERVER['HTTP_HOST'] . '/' . $uploaded_file;
+//
+//        // Save data into database
+//        $db->exec('INSERT INTO recipes (title, publisher, image_url) VALUES (?, ?, ?)', [$title, $publisher, $image_url]);
+//
+//        echo 'Recipe uploaded successfully';
+//    } else {
+//        echo 'Failed to upload image';
+//    }
+//});
+>>>>>>> fce5c73c1299944642ac1d44bc6586eed74148c5
 
 
 // Run the F3 instance

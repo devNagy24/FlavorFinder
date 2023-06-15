@@ -1,5 +1,5 @@
 <?php
-
+//Api model to look up recipes
 class RecipeModel {
     public function loadRecipe($query) {
         $api_url = "https://forkify-api.herokuapp.com/api/v2/recipes/?search=" . $query;
