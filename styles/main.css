@@ -1,0 +1,94 @@
+
+.search-form .btn-outline-success {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.search-form .form-control {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.input-group .btn-outline-success {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: none;
+    border-color: transparent; /* remove the border */
+    color: grey; /* change the icon color */
+}
+
+.input-group .form-control {
+    padding-left: 3rem; /* adjust as needed */
+}
+
+.nav-link {
+    color: white;
+}
+
+.twitter-link {
+    color: white;
+}
+
+.preview__link {
+    color: #212529;
+}
+
+.preview__link:hover {
+    color: #F08000;
+}
+
+.dropdown-item {
+    color: #0F4C81;
+}
+
+.dropdown-item:hover {
+    color: #0F4C81;
+}
+
+.dropdown-divider {
+    color: #F08000;
+}
+
+.nav-link {
+    color: white;
+}
+
+.nav-link:hover {
+    color: #1c2e4a;
+}
+
+.nav-link:active {
+    color: #1c2e4a;
+}
+.nav-link:focus {
+    color: #1c2e4a;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f2f2f2;
+
+}
+
+.content {
+    flex-grow: 1;
+}
+
+/*.nav-link:visited {*/
+/*    color: #F08000;*/
+/*}*/
+
+.nav-link.dropdown-toggle:active,
+.nav-link.dropdown-toggle:focus {
+    color: #F08000;
+}
+.toast {
+    background-color: rgba(255, 255, 255, 1); /* White with full opacity */
+}

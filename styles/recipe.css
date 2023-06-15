@@ -1,0 +1,164 @@
+.search-form .btn-outline-success {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.search-form .form-control {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.input-group .btn-outline-success {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: none;
+    border-color: transparent; /* remove the border */
+    color: grey; /* change the icon color */
+}
+
+.input-group .form-control {
+    padding-left: 3rem; /* adjust as needed */
+}
+
+.nav-link {
+    color: white;
+}
+
+.twitter-link {
+    color: white;
+}
+
+.preview__link {
+    color: #212529;
+}
+
+.preview__link:hover {
+    color: #F08000;
+}
+
+.dropdown-item {
+    color: #0F4C81;
+}
+
+.dropdown-item:hover {
+    color: #0F4C81;
+}
+
+.dropdown-divider {
+    color: #F08000;
+}
+
+.nav-link {
+    color: white;
+}
+
+.nav-link:hover {
+    color: #1c2e4a;
+}
+
+.nav-link:active {
+    color: #1c2e4a;
+}
+.nav-link:focus {
+    color: #1c2e4a;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    flex-grow: 1;
+}
+
+/*.nav-link:visited {*/
+/*    color: #F08000;*/
+/*}*/
+
+.nav-link.dropdown-toggle:active,
+.nav-link.dropdown-toggle:focus {
+    color: #F08000;
+}
+.toast {
+    background-color: rgba(255, 255, 255, 1); /* White with full opacity */
+}
+
+/*body {*/
+/*  background-color: #f2f2f2;*/
+/*}*/
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f2f2f2;
+
+}
+
+
+/*body {*/
+/*  font-family: Rubik, sans-serif;*/
+/*  line-height: inherit;*/
+/*  margin: 0;*/
+/*}*/
+
+.recipe-details {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.recipe-image {
+    flex: 0 0 auto;
+    max-height: 400px; /* Adjust the maximum height as needed */
+    overflow: hidden;
+}
+
+.recipe-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.recipe-info {
+    flex: 1;
+    margin-left: 1.25rem; /* Adjust the margin as needed */
+}
+
+.recipe-info > div {
+    margin-bottom: 1.25rem;
+}
+
+.recipe-info h2 {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+}
+
+.recipe-info p {
+    color: #4B5563;
+}
+
+.recipe-info a {
+    color: #4B5563;
+    text-decoration: none;
+}
+
+.recipe-info a:hover {
+    color: #F08000;
+}
+
+.ingredients-list {
+    columns: 2;
+    list-style-type: disc;
+    padding-left: 1rem;
+    color: #4B5563;
+}
+
+.ingredients-list li {
+    margin-bottom: 0.5rem;
+}
