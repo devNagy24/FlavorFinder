@@ -10,11 +10,12 @@
     <meta name="author" content="Devon Nagy, Sayed">
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/a0684f48ab.js" crossorigin="anonymous"></script>
+<!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>-->
+<!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>-->
+
 
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
 
@@ -23,35 +24,6 @@
     <title>FlavorFinder // Search over 1,000,000 recipes</title>
 
 <style>
-
-
-    /*.preview__img {*/
-    /*    display: block;*/
-    /*    width: 150px;*/
-    /*    height: 150px;*/
-    /*    object-fit: cover;*/
-    /*    border-radius: 50%;*/
-    /*    transition: all 0.3s;*/
-    /*    text-align: center;*/
-
-    /*}*/
-
-
-    /*.preview__img {*/
-    /*    font-size: 1.125rem;*/
-    /*    text-anchor: middle;*/
-    /*    -webkit-user-select: none;*/
-    /*    -moz-user-select: none;*/
-    /*    user-select: none;*/
-    /*}*/
-
-    /*@media (min-width: 768px) {*/
-    /*    .bd-placeholder-img-lg {*/
-    /*        font-size: 3.5rem;*/
-    /*    }*/
-    /*}*/
-
-
 
     .search-form .btn-outline-success {
         border-top-left-radius: 0;
@@ -97,11 +69,11 @@
     }
 
     .dropdown-item {
-        color: #212529;
+        color: #0F4C81;
     }
 
     .dropdown-item:hover {
-        color: #F08000;
+        color: #0F4C81;
     }
 
     .dropdown-divider {
@@ -113,15 +85,28 @@
     }
 
     .nav-link:hover {
-        color: #F08000;
+        color: #1c2e4a;
     }
 
     .nav-link:active {
-        color: #F08000;
+        color: #1c2e4a;
     }
     .nav-link:focus {
-        color: #F08000;
+        color: #1c2e4a;
     }
+    
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background-color: #f2f2f2;
+
+    }
+
+    .content {
+        flex-grow: 1;
+    }
+
     /*.nav-link:visited {*/
     /*    color: #F08000;*/
     /*}*/
@@ -130,59 +115,147 @@
     .nav-link.dropdown-toggle:focus {
         color: #F08000;
     }
+    .toast {
+        background-color: rgba(255, 255, 255, 1); /* White with full opacity */
+    }
+
+
+
 </style>
 </head>
 
-<body>
+<body class="d-flex flex-column">
 
+<include href="views/upload_modal.html" />
+<include href="views/success.html" />
 <!-- Start of navigation -->
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-dark py-3 mb-4 border-bottom">
         <div class="container d-flex flex-wrap align-items-center justify-content-center justify-content-lg-between">
-            <a class="navbar-brand d-flex align-items-center mb-2 mb-md-0 text-light" href="#">
+            <a class="navbar-brand d-flex align-items-center mb-2 mb-md-0 text-light home-link" href="#">
                 <img src="images/chefhat.png" alt="FlavorFinder" width="64px" height="64px"/>
                 <span class="ml-2 text-light">FlavorFinder</span>
             </a>
 
             <ul class="nav col-12 col-lg-auto mb-2 justify-content-center mb-md-0">
                 <li class="nav-item active">
-                    <a class="nav-link text-light" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link text-light home-link" role="button">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="#">Log In</a>
+                    <a class="nav-link text-light" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Log In</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa-solid fa-user fa-sm"></i> Services
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#"><i class="fa fa-bookmark fa-sm" aria-hidden="true"></i> Bookmarks</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#"><i class="fa fa-cloud-upload fa-sm" aria-hidden="true"></i> Upload Recipe</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="#" data-bs-toggle="modal" data-bs-target="#signUpModal">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" id="bookmarksLink" href="#" data-bs-toggle="modal" data-bs-target="#bookmarksModal"><i class="fa fa-bookmark fa-sm" aria-hidden="true"></i> Bookmarks</a>
                 </li>
             </ul>
-
-            <!-- Here you can add any button or form that you want to align on the right side -->
         </div>
     </nav>
 
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="loginUsername" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="loginUsername" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="loginPassword" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="loginSubmit">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sign Up Modal -->
+    <div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="signUpModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="signUpModalLabel">Sign Up</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="#" method="post" id="signupForm">
+                        <div class="form-group">
+                            <label for="signUpUsername" class="col-form-label">Username:</label>
+                            <input type="text" class="form-control" id="signUpUsername" name="formField" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signUpEmail" class="col-form-label">Email:</label>
+                            <input type="email" class="form-control" id="signUpEmail" name="formField" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signUpPassword" class="col-form-label">Password:</label>
+                            <input type="password" class="form-control" id="signUpPassword" name="formField" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signUpPasswordConfirm" class="col-form-label">Confirm Password:</label>
+                            <input type="password" class="form-control" id="signUpPasswordConfirm" name="formField" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" id="signUpSubmit">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bookmarks Modal -->
+    <div class="modal fade" id="bookmarksModal" tabindex="-1" aria-labelledby="bookmarksModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="bookmarksModalLabel">Your Bookmarks</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="bookmarksList" class="list-group">
+                        <!-- Bookmarks will be inserted here -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </header>
 
-<main>
+
+<main class="content">
     <section class="py-5 text-center container">
         <div class="row py-lg-5">
             <div class="col-lg-6 col-md-8 mx-auto">
                 <h1 class="fw-light">Recipe Collection</h1>
                 <p class="lead text-muted">Find your favorite recipes here!</p>
+                <form action="#" method="post">
                 <div class="input-group">
-                    <input type="search" class="form-control" placeholder="Search" aria-label="Search" id="searchInput">
+                    <input type="search" class="form-control" placeholder="Search for keywords like 'pizza'"
+                           aria-label="Search" id="searchInput" name="keyword">
                     <div class="input-group-append">
                         <button class="btn btn-outline-success" type="submit" id="searchButton">
                             <i class="fa-solid fa-magnifying-glass fa-lg"></i>
                         </button>
                     </div>
                 </div>
+                </form>
             </div>
         </div>
     </section>
@@ -203,58 +276,269 @@
                                     <div class="btn-group">
                                         <a class="btn btn-sm btn-outline-secondary" href="/328/FlavorFinder/recipe/{{ @recipe.id }}">View</a>
                                     </div>
-                                    <small class="text-muted">{{ @recipe.publisher }}</small>
+                                    <small class="text-muted"><i class="fa-solid fa-user fa-sm"></i> {{ @recipe.publisher }}</small>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </repeat>
 
+                <!-- page navigation buttons -->
+                <nav aria-label="Page navigation">
+                    <ul class="pagination justify-content-center">
+                        <!-- When the user clicks the Previous button, the form submits a POST request with the current page number minus 1 -->
+                        <li class="page-item {{ @page <= 1 ? 'disabled' : '' }}">
+                            <a class="page-link" href="?page={{ @page - 1 }}">Previous</a>
+                        </li>
+
+                        <!-- Display the current page number (not clickable) -->
+                        <li class="page-item disabled"><a class="page-link" href="#">{{ @page }}</a></li>
+
+                        <!-- When the user clicks the Next button, the form submits a POST request with the current page number plus 1 -->
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ @page + 1 }}">Next</a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </div>
 </main>
 
-
-<nav class="navbar navbar-expand-lg navbar-light bg-dark py-6 mb-10 border-bottom">
+<div id="wrap">
+<nav class="navbar navbar-expand-lg navbar-light bg-dark mb-10 border-bottom">
     <footer class="footer mt-auto py-3">
-        <div class="container">
+    <div class="container">
             <span class="text-muted">&copy; Copyright by
                 <a class="twitter-link" target="_blank" href="">FlavorFinder</a>. Learn how to cook delicious meals from around the world!</span>
         </div>
     </footer>
 </nav>
-<!-- Upload Recipe Modal Here -->
-<!--<include href="views/upload_recipe_modal.html" />-->
+</div>
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+    <div id="toastBook" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <i class="fas fa-check-circle text-success"></i>
+            <strong class="me-auto">Success</strong>
+            <small>Just now</small>
+<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+</div>
+<div class="toast-body">
+    You have bookmarked a recipe!
+</div>
+</div>
+</div>
 <script>
-    document.getElementById('searchButton').addEventListener('click', function(event) {
-        event.preventDefault(); // Prevent the default button click action
+    const appRootTwo = '/328/FlavorFinder';
 
-        let keyword = document.getElementById('searchInput').value;
-
-        fetch('/getRecipes', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ keyword: keyword })
+    document.addEventListener("DOMContentLoaded", function(event) {
+        fetch(appRootTwo + '/get-session', {
+            method: 'GET'
         })
             .then(response => response.json())
             .then(data => {
-                // Handle the response data...
+                if(data.username) {
+                    // User is logged in, show the welcome message
+                    let welcomeItem = document.createElement('li');
+                    welcomeItem.classList.add('nav-item');
+                    welcomeItem.innerHTML = '<i class="fa-solid fa-user fa-sm"></i> Welcome, ' + data.username;
+                    welcomeItem.style.color = 'white';
+                    welcomeItem.style.listStyleType = 'none';
+                    welcomeItem.style.paddingRight = '10px';
+                    document.querySelector('.navbar').appendChild(welcomeItem);
+                }
             })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
     });
+
+
+    document.getElementById('loginSubmit').addEventListener('click', function(event) {
+        event.preventDefault();
+        let form = document.getElementById('loginForm');
+
+        if(form.checkValidity()) {
+            let username = document.getElementById('loginUsername').value;
+            let password = document.getElementById('loginPassword').value;
+
+            let payload = {
+                username: username,
+                password: password
+            };
+
+            fetch(appRootTwo + '/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            }).then(response => response.json())
+                .then(data => {
+                    if(data.success) {
+                        // Close the login model
+                        let modal = document.getElementById('loginModal');
+                        let bootstrapModal = bootstrap.Modal.getInstance(modal);
+                        bootstrapModal.hide();
+
+                        // Save the username in the localStorage
+                        localStorage.setItem('username', data.username);
+
+                        // Show the toast here when the signup is successful
+                        let toast = new bootstrap.Toast(document.getElementById('toastLog'));
+                        toast.show();
+                        // Add "Welcome, username" to the navbar
+                        let welcomeItem = document.createElement('li');
+                        welcomeItem.classList.add('nav-item');
+                        welcomeItem.innerHTML = '<i class="fa-solid fa-user fa-sm"></i> Welcome, ' + data.username;
+                        welcomeItem.style.color = 'white';
+                        welcomeItem.style.listStyleType = 'none';
+                        welcomeItem.style.paddingRight = '10px';
+                        document.querySelector('.navbar').appendChild(welcomeItem);
+                    } else {
+                        alert('Login failed');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        } else {
+            form.reportValidity();
+        }
+    });
+
+
+    document.getElementById('bookmarksLink').addEventListener('click', function(event) {
+        event.preventDefault();
+
+        // Clear existing bookmarks
+        document.getElementById('bookmarksList').innerHTML = '';
+
+        // Fetch the bookmarks from your backend
+        fetch(appRootTwo + '/bookmarks', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        }).then(response => response.json())
+            .then(data => {
+                console.log(data);
+                // Assuming your API returns an array of bookmarked recipes
+                if (Array.isArray(data.bookmarks)) {
+                    // Create an array to store the fetch promises
+                    const fetchPromises = [];
+
+                    // Iterate over the bookmark IDs
+                    for (let bookmarkId of data.bookmarks) {
+                        // Fetch the recipe details by ID
+                        const fetchPromise = fetch(appRootTwo + '/recipe/' + bookmarkId, {
+                            method: 'GET',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                        }).then(response => response.text())
+                            .then(recipeData => {
+                                // Extract the title from the returned HTML
+                                const parser = new DOMParser();
+                                const htmlDoc = parser.parseFromString(recipeData, 'text/html');
+                                const titleElement = htmlDoc.querySelector('.fw-light');
+                                const title = titleElement.textContent;
+
+                                // Create a link element for each bookmarked recipe
+                                const bookmarkEl = document.createElement('a');
+                                bookmarkEl.className = "list-group-item list-group-item-action";
+                                bookmarkEl.href = appRootTwo + '/recipe/' + bookmarkId;
+                                bookmarkEl.textContent = title;
+
+                                document.getElementById('bookmarksList').appendChild(bookmarkEl);
+                            })
+                            .catch(error => console.error('Error:', error));
+
+                        // Add the fetch promise to the array
+                        fetchPromises.push(fetchPromise);
+                    }
+
+                    // Wait for all fetch promises to resolve
+                    Promise.all(fetchPromises)
+                        .then(() => {
+                            // Show the modal
+                            let modal = new bootstrap.Modal(document.getElementById('bookmarksModal'));
+                            modal.show();
+                        })
+                        .catch(error => console.error('Error:', error));
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    });
+
+
+    document.getElementById('signUpSubmit').addEventListener('click', function(event) {
+        console.log("clicked");
+        event.preventDefault();
+        let form = document.getElementById('signupForm');
+
+        if(form.checkValidity()) {
+            let username = document.getElementById('signUpUsername').value;
+            let email = document.getElementById('signUpEmail').value;
+            let password = document.getElementById('signUpPassword').value;
+            let confirmPassword = document.getElementById('signUpPasswordConfirm').value;
+
+            console.log(username);
+            console.log(email);
+
+            if(password !== confirmPassword) {
+                alert('Passwords do not match');
+                return;
+            }
+
+            let payload = {
+                username: username,
+                email: email,
+                password: password
+            };
+            console.log(payload);
+            JSON.stringify(payload);
+            fetch(appRootTwo + '/sign-up', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            }).then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    if(data.success) {
+                        // Close the signup model
+                        let modal = document.getElementById('signUpModal');
+                        let bootstrapModal = bootstrap.Modal.getInstance(modal);
+                        bootstrapModal.hide();
+
+                        // Show the toast here when the signup is successful
+                        let toast = new bootstrap.Toast(document.getElementById('toast'));
+                        toast.show();
+
+                        // Add "Welcome, username" to the navbar
+                        let welcomeItem = document.createElement('li');
+                        welcomeItem.classList.add('nav-item');
+                        welcomeItem.innerHTML = '<i class="fa-solid fa-user fa-sm"></i> Welcome, ' + data.username;
+                        welcomeItem.style.color = 'white';
+                        welcomeItem.style.listStyleType = 'none';
+                        welcomeItem.style.paddingRight = '10px';
+                        document.querySelector('.navbar').appendChild(welcomeItem);
+                    } else {
+                        alert('Username taken');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        } else {
+            form.reportValidity();
+        }
+    });
+
 
 </script>
 <!-- Bootstrap and other JavaScript libraries -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="js/routing_controller.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<!--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-
-<!-- Your custom JavaScript here -->
+<script src="https://kit.fontawesome.com/a0684f48ab.js" crossorigin="anonymous"></script>
+<!-- Upload Recipe Modal Here -->
 
 </body>
 </html>
