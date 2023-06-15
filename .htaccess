@@ -18,4 +18,6 @@
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
     RewriteRule ^views/ = [F,L]
+
+    FallbackResource /328/FlavorFinder/index.php
 </IfModule>
