@@ -13,7 +13,7 @@ class ApiController
             $data = json_decode($response['body'], true);
             return $data['data']['recipe'];
         } else {
-            // Handle error...
+            // Handle errors
             return null;
         }
     }

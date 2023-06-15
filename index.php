@@ -91,7 +91,7 @@ $f3->route('POST /search', function($f3) {
 });
 
 
-
+//Stores into the sql data base
 //$f3->route('POST /uploadRecipe', function($f3) {
 //    $db = new DB\SQL('mysql:host=localhost;dbname=FlavorFinder', 'devnagy', 'GreenRiverEDU!!');
 //
