@@ -19,24 +19,22 @@ class ApiController
     }
 
 
-    function getRecipesFromForkify($query = null)
+    function getRecipesFromForkify($query)
     {
         // Only make the API call if $query is not empty
         if (!empty($query)) {
             // Use $query to fetch data from the API...
             $json = file_get_contents("https://forkify-api.herokuapp.com/api/v2/recipes?search=" . $query);
             $data = json_decode($json, true);
-            $newArray = $data['data']['recipes'];
+            $recipes = $data['data']['recipes'];
 
-            // Limit the number of results
-            $limitedRecipes = array_slice($newArray, 0, 10);
-
-            return $limitedRecipes;
+            return $recipes;
         } else {
             // If $query is empty, return an empty array
             return [];
         }
     }
+
 
 
 }
