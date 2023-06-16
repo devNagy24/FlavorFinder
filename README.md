@@ -23,7 +23,7 @@ Here's a list on how and where each project requirement was implemented.
    t
 
 2. **HTML and Bootstrap Template:**
-   The second goal was to create a user interface for displaying the API data. To achieve this, we started with the HTML file `index.html` and styled it with Bootstrap. This template includes sections for displaying various categories of API data, such as news articles, weather data, and more. It provides a basic structure for organizing and presenting the API data.
+   The second goal was to create a user interface for displaying the API data. To achieve this, we started with the HTML file `home.html` and styled it with Bootstrap. This template includes sections for displaying various categories of API data, such as news articles, weather data, and more. It provides a basic structure for organizing and presenting the API data.
 
 3. **Data Manipulation and Display:**
    The third step was to manipulate the data from the API and display it in the HTML template. This was done using the F3 repeat directive in our HTML file, as it allowed us to iterate over the received data and display each piece of information in the template.
