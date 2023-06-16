@@ -18,9 +18,9 @@ FlavorFinder is a PHP-based web application that allows users to explore and dis
 Here's a list on how and where each project requirement was implemented.
 
 1. **API Integration and Data Retrieval:**
-   The first major objective was integrating with the API and retrieving data from it. $web = \Web::instance();
+   The first major objective was integrating with the API and retrieving data from it using Fat-Free Framework. $web = \Web::instance();
    $response = $web->request('https://forkify-api.herokuapp.com/api/v2/recipes/'.$id);
-   t
+   
 
 2. **HTML and Bootstrap Template:**
    The second goal was to create a user interface for displaying the API data. To achieve this, we started with the HTML file `home.html` and styled it with Bootstrap. This template includes sections for displaying various categories of API data, such as news articles, weather data, and more. It provides a basic structure for organizing and presenting the API data.
