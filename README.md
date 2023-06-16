@@ -3,6 +3,7 @@ Final Project for Sdev328 @ Green River College
 
 ## Table of Contents
 - [Introduction](#introduction)
+- [Project Implementation](#project-implementation)
 - [Installation](#installation)
 - [API Documentation](#api-documentation)
 - [Application Usage](#application-usage)
