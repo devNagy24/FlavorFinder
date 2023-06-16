@@ -13,6 +13,28 @@ Final Project for Sdev328 @ Green River College
 ## Introduction
 FlavorFinder is a PHP-based web application that allows users to explore and discover a multitude of recipes. The user can search for recipes, bookmark their favorites, and review them at any time. The application relies on the Forkify API to fetch recipe data.
 
+## Project Implementation
+
+Here's a list on how and where each project requirement was implemented.
+
+1. **API Integration and Data Retrieval:**
+   The first major objective was integrating with the chosen API and retrieving data from it. This was accomplished by using the `fetch` function in JavaScript, and it was implemented in the file `main.js` within the function `getData()`. This function was used to make requests to the API and receive responses. The data obtained from the API was then stored in a variable for later use.
+
+2. **HTML and Bootstrap Template:**
+   The second goal was to create a user interface for displaying the API data. To achieve this, we started with the HTML file `index.html` and styled it with Bootstrap. This template includes sections for displaying various categories of API data, such as news articles, weather data, and more. It provides a basic structure for organizing and presenting the API data.
+
+3. **Data Manipulation and Display:**
+   The third step was to manipulate the data from the API and display it in the HTML template. This was done using the F3 repeat directive in our HTML file, as it allowed us to iterate over the received data and display each piece of information in the template. The manipulation and display of data were implemented in the `displayData()` function within `main.js`.
+
+4. **JavaScript and Front-End Functionality:**
+   Once the data was successfully displayed on the HTML template, we turned our attention to implementing the frontend functionality. This was achieved using JavaScript and was implemented in `main.js`. This file contains functions for handling user interactions such as button clicks and form submissions.
+
+5. **Database Integration:**
+   The final step was integrating with our MySQL database. This was done using the `mysql` module in Node.js. We used it to create a connection to our database, perform queries, and retrieve results. The database connection and operations were implemented in `database.js`. This file contains functions for creating and closing the database connection, as well as for performing CRUD operations on the data.
+
+These are the steps that led us to achieving our goal.
+
+
 ## Installation
 Here are the installation steps:
 1. Clone the repository to your local machine or server.
