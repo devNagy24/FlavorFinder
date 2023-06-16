@@ -39,6 +39,42 @@ FlavorFinder offers the following features:
 
 6. **Styles:** The application's visual appeal and user-friendly design are governed by the CSS files located in the `styles` directory. This includes `main.css`, `recipe.css`, and `modal.css`.
 
+# UML Class Diagram
+
+The main classes that make up the architecture of the FlavorFinder project are as follows:
+
+1. **UserModel**: This class manages all operations related to the user, including registration, login, authentication, bookmarking, and fetching bookmarks.
+
+2. **ApiController**: This class interacts with the Forkify API to fetch recipes based on a keyword and loads a specific recipe based on its ID.
+
+3. **RouteController**: This class manages routes and actions associated with them. It handles the home route, user sign-up, user login, session retrieval, bookmark creation, and bookmark retrieval.
+
+## UserModel
+
+- **Constructor**: Takes a database connection object and stores it.
+- **register**: Registers a new user with a given username, password, and email.
+- **login**: Logs in a user with a given username and password.
+- **authenticate**: Authenticates a user with a given username and password.
+- **bookmark**: Adds a recipe to the user's bookmarks.
+- **getBookmarks**: Retrieves all of a user's bookmarked recipes.
+
+## ApiController
+
+- **loadRecipe**: Loads a specific recipe from the Forkify API using its ID.
+- **getRecipesFromForkify**: Fetches recipes from the Forkify API based on a keyword.
+
+## RouteController
+
+- **Constructor**: Instantiates F3, APIController, and UserModel.
+- **home**: Handles the home route and retrieves and displays recipes based on a keyword.
+- **clearCookies**: Clears the user session data and resets the URL.
+- **signUp**: Handles user sign-up and registers a new user.
+- **login**: Handles user login and validates it.
+- **getSession**: Retrieves session data for the user.
+- **postBookmarks**: Handles bookmarking a recipe.
+- **getBookmarked**: Retrieves the user's bookmarked recipes from the database.
+
+
 ## Contributions
 Contributions are always welcome! If you have suggestions or improvements, please fork the repository and create a pull request.
 
