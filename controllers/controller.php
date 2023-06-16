@@ -182,7 +182,7 @@ class RouteController
     /**
      * Handles bookmarking a recipe. Adds a bookmark to the database and responds with success status as JSON.
      */
-    public function postBookmark()
+    public function postBookmarks()
     {
         // Get the raw POST data
         $rawData = file_get_contents('php://input');
