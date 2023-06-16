@@ -20,7 +20,7 @@ Here are the installation steps:
 4. Navigate to the application's root directory in your browser to start using FlavorFinder.
 
 ## API Documentation
-FlavorFinder uses the [Forkify API](https://forkify-api.herokuapp.com/v2) to fetch recipe data. Forkify API provides access to a vast collection of recipes and an easy-to-use search functionality. For more details, you can review the [Forkify API documentation](https://forkify-api.herokuapp.com/v2).
+FlavorFinder uses the [Forkify API](https://forkify-api.herokuapp.com/v2) to fetch recipe data. Forkify API provides access to a ton of recipes and an easy-to-use search functionality.
 
 ## Application Usage
 FlavorFinder offers the following features:
