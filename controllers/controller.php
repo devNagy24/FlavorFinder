@@ -61,13 +61,12 @@ class RouteController
      */
     public function clearCookies()
     {
-
         session_unset();
         session_destroy();
 
         echo '<script>window.history.replaceState({}, "", "FlavorFinder/#");</script>';
     }
-    
+
     /**
      * Handles user sign up. Registers a new user and sets a session variable if successful.
      */
