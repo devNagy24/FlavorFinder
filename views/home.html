@@ -13,24 +13,12 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-<!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>-->
-<!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>-->
-
 
     <link rel="stylesheet" href="styles/main.css" />
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
 
-    <!--    <link rel="stylesheet" href="styles/style.css" />-->
-
     <title>FlavorFinder // Search over 1,000,000 recipes</title>
 
-<style>
-
-   
-
-
-
-</style>
 </head>
 
 <body class="d-flex flex-column">
@@ -214,6 +202,20 @@
     </div>
 </main>
 
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+    <div id="toastLog" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <i class="fas fa-check-circle text-success"></i>
+            <strong class="me-auto">Success</strong>
+            <small>Just now</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            You have logged in!
+        </div>
+    </div>
+</div>
+
 <div id="wrap">
 <nav class="navbar navbar-expand-lg navbar-light bg-dark mb-10 border-bottom">
     <footer class="footer mt-auto py-3">
@@ -224,19 +226,7 @@
     </footer>
 </nav>
 </div>
-<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
-    <div id="toastBook" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="toast-header">
-            <i class="fas fa-check-circle text-success"></i>
-            <strong class="me-auto">Success</strong>
-            <small>Just now</small>
-<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-</div>
-<div class="toast-body">
-    You have bookmarked a recipe!
-</div>
-</div>
-</div>
+
 <script>
     const appRootTwo = '/328/FlavorFinder';
 

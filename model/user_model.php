@@ -1,13 +1,39 @@
 <?php
+/**
+ * @author Devon Nagy
+ * @author SayedJ
+ * @version 1.0
+ *
+User Model Class
+ * This class handles all operations related to the User
+ *registration, login, authentication, bookmarking and fetching bookmarks.
+ *
+ */
+
+
 
 require_once('/home/devonnag/public_html/328/FlavorFinder/db.php');
 class UserModel {
     private $db;
 
+    /**
+     * Class constructor
+     *
+     * @param object $db Database connection object
+     */
     public function __construct($db) {
+        // Storing database connection
         $this->db = $db;
     }
 
+    /**
+     * Register a new user
+     *
+     * @param string $username User's username
+     * @param string $password User's password
+     * @param string $email User's email
+     * @return mixed Return string if error || last insert id in case of success
+     */
     public function register($username, $password, $email) {
         // Check form data
         if (empty($username) || empty($password) || empty($email)) {
@@ -45,6 +71,14 @@ class UserModel {
         return $this->db->lastInsertId();
     }
 
+    /**
+     * Logging a user in
+     *
+     * @param string $username User's username
+     * @param string $password User's password
+     * @return bool Return true if login = true : false
+     */
+
     public function login($username, $password) {
         // Check if the user exists
         $sql = "SELECT * FROM users WHERE username = :username";
@@ -67,7 +101,13 @@ class UserModel {
 
 
 
-
+    /**
+     * Authenticating user
+     *
+     * @param string $username User's username
+     * @param string $password User's password
+     * @return mixed Return associative array of user data if authentication is successful, false otherwise
+     */
     public function authenticate($username, $password) {
         // Fetch the user from the database
         $sql = "SELECT * FROM users WHERE username = :username";
@@ -84,6 +124,13 @@ class UserModel {
         return false;
     }
 
+    /**
+     * Adding bookmark
+     *
+     * @param string $username User's username
+     * @param string $recipeId id of the recipe to be bookmarked
+     * @return mixed RReturn true if login = true : string in case of error
+     */
     public function bookmark($username, $recipeId) {
         // Insert the bookmark into the database
         $sql = "INSERT INTO bookmarks (username, recipe_id) VALUES (:username, :recipe_id)";
@@ -103,6 +150,12 @@ class UserModel {
         return true;
     }
 
+    /**
+     * Grab all bookmarks for user
+     *
+     * @param string $username User's username
+     * @return mixed Return array of bookmarked recipe ids : string 
+     */
     public function getBookmarks($username) {
         // Query to get all bookmarked recipe_ids for a user
         $sql = "SELECT recipe_id FROM bookmarks WHERE username = :username";
@@ -125,10 +178,4 @@ class UserModel {
 
         return $bookmarks;
     }
-
-
-
-
-
-
 }
