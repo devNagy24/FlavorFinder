@@ -10,7 +10,7 @@ Final Project for Sdev328 @ Green River College
 - [Support](#support)
 
 ## Introduction
-FlavorFinder is a PHP-based web application that helps users explore and discover a variety of recipes. The user can search for recipes, bookmark their favorites, and review them at any time. The application relies on the Forkify API to fetch recipe data.
+FlavorFinder is a PHP-based web application that allows users to explore and discover a multitude of recipes. The user can search for recipes, bookmark their favorites, and review them at any time. The application relies on the Forkify API to fetch recipe data.
 
 ## Installation
 Here are the installation steps:
@@ -25,11 +25,17 @@ FlavorFinder uses the [Forkify API](https://forkify-api.herokuapp.com/v2) to fet
 ## Application Usage
 FlavorFinder offers the following features:
 
-1. **User Registration and Authentication:** Users can register by providing a unique username, password, and a valid email address. They can log in to the application using the registered credentials.
+1. **User Registration and Authentication:** Users can register by providing a unique username, password, and a valid email address. They can log in to the application using the registered credentials. The user-related functionality is found in the `model/UserModel.php` file.
 
-2. **Recipe Search:** Users can search for a wide range of recipes using the search bar. The search results show a list of recipes fetched from the Forkify API.
+2. **Recipe Search:** Users can search for a wide range of recipes using the search bar. The search results show a list of recipes fetched from the Forkify API. The API calls are handled by the `model/API_Model.php` file.
 
-3. **Bookmark Recipes:** Users can bookmark their favorite recipes. The bookmarks are stored in the database and can be reviewed at any time.
+3. **Bookmark Recipes:** Users can bookmark their favorite recipes. The bookmarks are stored in the database and can be reviewed at any time. The bookmarking functionality is also located in the `model/user_model.php` file.
+
+4. **Routing:** The application uses a simple routing system to navigate between different pages. The routing is controlled by the `index.php` file in the root directory, with the `controllers/controller.php` handling the route controllers.
+
+5. **JavaScript Functions:** The front end interactivity, including the search bar functionality, bookmarking, and pagination is controlled by JavaScript located in the `js/routing_controller.js` directory.
+
+6. **Styles:** The application's visual appeal and user-friendly design are governed by the CSS files located in the `styles` directory. This includes `main.css`, `recipe.css`, and `modal.css`.
 
 ## Contributions
 Contributions are always welcome! If you have suggestions or improvements, please fork the repository and create a pull request.
