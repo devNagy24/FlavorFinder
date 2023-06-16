@@ -6,6 +6,7 @@ Final Project for Sdev328 @ Green River College
 - [Installation](#installation)
 - [API Documentation](#api-documentation)
 - [Application Usage](#application-usage)
+- [UML Class Diagram](#uml-class-diagram)
 - [Contributions](#contributions)
 - [Support](#support)
 
