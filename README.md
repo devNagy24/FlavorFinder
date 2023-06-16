@@ -25,7 +25,7 @@ FlavorFinder uses the [Forkify API](https://forkify-api.herokuapp.com/v2) to fet
 ## Application Usage
 FlavorFinder offers the following features:
 
-1. **User Registration and Authentication:** Users can register by providing a unique username, password, and a valid email address. They can log in to the application using the registered credentials. The user-related functionality is found in the `model/UserModel.php` file.
+1. **User Registration and Authentication:** Users can register by providing a unique username, password, and a valid email address. They can log in to the application using the registered credentials. The user-related functionality is found in the `model/user_model.php` file.
 
 2. **Recipe Search:** Users can search for a wide range of recipes using the search bar. The search results show a list of recipes fetched from the Forkify API. The API calls are handled by the `model/API_Model.php` file.
 
