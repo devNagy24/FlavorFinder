@@ -18,6 +18,8 @@ Here are the installation steps:
 2. Import the `database.sql` file into your MySQL database. This file will create the necessary tables and populate them with data.
 3. Update the `db.php` file to use your MySQL database credentials.
 4. Navigate to the application's root directory in your browser to start using FlavorFinder.
+5. Make sure your PHP version is at least 7.1
+6. Verify Fat-Free Framework is downloaded with a "composer update"
 
 ## API Documentation
 FlavorFinder uses the [Forkify API](https://forkify-api.herokuapp.com/v2) to fetch recipe data. Forkify API provides access to a ton of recipes and an easy-to-use search functionality.
