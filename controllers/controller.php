@@ -61,28 +61,13 @@ class RouteController
      */
     public function clearCookies()
     {
-        // Your logic from the GET /clear-cookies route
+
         session_unset();
         session_destroy();
 
         echo '<script>window.history.replaceState({}, "", "FlavorFinder/#");</script>';
     }
-
-      // Currently not implemented due to 500 errors from the API calls
-//    public function recipe($params)
-//    {
-//        // Initialize a new ApiController instance
-//        $apiController = new ApiController();
-//
-//        // Fetch the recipe
-//        $recipe = $apiController->loadRecipe($params['id']);
-//        $this->_f3->set('recipe', $recipe);
-//
-//        // Render the view
-//        $view = new Template();
-//        echo $view->render('views/recipe.html');
-//    }
-
+    
     /**
      * Handles user sign up. Registers a new user and sets a session variable if successful.
      */
